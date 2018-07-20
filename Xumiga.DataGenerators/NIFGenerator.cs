@@ -27,7 +27,7 @@ namespace Xumiga.DataGenerators
         /// <summary>
         /// 6: Organismo da Administração Pública Central, Regional ou Local;
         /// </summary>
-        AdministraçãoPublica = 4,
+        AdministracaoPublica = 4,
 
         /// <summary>
         /// 70, 74 e 75: Herança Indivisa, em que o autor da sucessão não era empresário individual, ou Herança Indivisa em que o cônjuge sobrevivo tem rendimentos comerciais;
@@ -113,7 +113,7 @@ namespace Xumiga.DataGenerators
                 case NIFType.PessoaSingular: number = "1" + StringGenerator.GetNumeric(7); break;
                 case NIFType.PessoaSingularEstrangeiro: number = "45" + StringGenerator.GetNumeric(6); break;
                 case NIFType.PessoaColectiva: number = "5" + StringGenerator.GetNumeric(7); break;
-                case NIFType.AdministraçãoPublica: number = "6" + StringGenerator.GetNumeric(7); break;
+                case NIFType.AdministracaoPublica: number = "6" + StringGenerator.GetNumeric(7); break;
                 case NIFType.HerancaIndivisa: number = "70" + StringGenerator.GetNumeric(6); break;
                 case NIFType.NaoResidentesColectivos: number = "71" + StringGenerator.GetNumeric(6); break;
                 case NIFType.FundosDeInvestimento: number = "72" + StringGenerator.GetNumeric(6); break;

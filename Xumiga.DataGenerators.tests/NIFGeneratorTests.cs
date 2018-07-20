@@ -17,6 +17,135 @@ namespace Xumiga.DataGenerator.tests
             CommonTestsRules(generated);
         }
 
+        [Fact]
+        public void NIFGenerator_PessoaSingularEstrangeiro_SUCCESS()
+        {
+            string generated = NIFGenerator.GenerateNIF(NIFType.PessoaSingularEstrangeiro);
+
+            Assert.StartsWith("45", generated);
+
+            CommonTestsRules(generated);
+        }
+
+        [Fact]
+        public void NIFGenerator_PessoaColectiva_SUCCESS()
+        {
+            string generated = NIFGenerator.GenerateNIF(NIFType.PessoaColectiva);
+
+            Assert.StartsWith("5", generated);
+
+            CommonTestsRules(generated);
+        }
+
+        [Fact]
+        public void NIFGenerator_AdministraçãoPublica_SUCCESS()
+        {
+            string generated = NIFGenerator.GenerateNIF(NIFType.AdministracaoPublica);
+
+            Assert.StartsWith("6", generated);
+
+            CommonTestsRules(generated);
+        }
+
+        [Fact]
+        public void NIFGenerator_HerancaIndivisa_SUCCESS()
+        {
+            string generated = NIFGenerator.GenerateNIF(NIFType.HerancaIndivisa);
+
+            Assert.True(generated.StartsWith("70") || generated.StartsWith("74") || generated.StartsWith("75"));
+
+            CommonTestsRules(generated);
+        }
+
+        [Fact]
+        public void NIFGenerator_NaoResidentesColectivos_SUCCESS()
+        {
+            string generated = NIFGenerator.GenerateNIF(NIFType.NaoResidentesColectivos);
+
+            Assert.StartsWith("71", generated);
+
+            CommonTestsRules(generated);
+        }
+
+        [Fact]
+        public void NIFGenerator_FundosDeInvestimento_SUCCESS()
+        {
+            string generated = NIFGenerator.GenerateNIF(NIFType.FundosDeInvestimento);
+
+            Assert.StartsWith("72", generated);
+
+            CommonTestsRules(generated);
+        }
+
+        [Fact]
+        public void NIFGenerator_AtribuicaoOficiosaSujeitoPassivo_SUCCESS()
+        {
+            string generated = NIFGenerator.GenerateNIF(NIFType.AtribuicaoOficiosaSujeitoPassivo);
+
+            Assert.StartsWith("77", generated);
+
+            CommonTestsRules(generated);
+        }
+
+        [Fact]
+        public void NIFGenerator_AtribuicaoOficiosaNaoResidentes_SUCCESS()
+        {
+            string generated = NIFGenerator.GenerateNIF(NIFType.AtribuicaoOficiosaNaoResidentes);
+
+            Assert.StartsWith("78", generated);
+
+            CommonTestsRules(generated);
+        }
+
+        [Fact]
+        public void NIFGenerator_RegimeExcepcional_SUCCESS()
+        {
+            string generated = NIFGenerator.GenerateNIF(NIFType.RegimeExcepcional);
+
+            Assert.StartsWith("79", generated);
+
+            CommonTestsRules(generated);
+        }
+
+        [Fact]
+        public void NIFGenerator_EmpresarioEmNomeIndividual_SUCCESS()
+        {
+            string generated = NIFGenerator.GenerateNIF(NIFType.EmpresarioEmNomeIndividual);
+
+            Assert.StartsWith("8", generated);
+
+            CommonTestsRules(generated);
+        }
+
+        [Fact]
+        public void NIFGenerator_Condominios_SUCCESS()
+        {
+            string generated = NIFGenerator.GenerateNIF(NIFType.Condominios);
+
+            Assert.True(generated.StartsWith("90") || generated.StartsWith("91"));
+
+            CommonTestsRules(generated);
+        }
+
+        [Fact]
+        public void NIFGenerator_NaoResidentes_SUCCESS()
+        {
+            string generated = NIFGenerator.GenerateNIF(NIFType.NaoResidentes);
+
+            Assert.StartsWith("98", generated);
+
+            CommonTestsRules(generated);
+        }
+
+        [Fact]
+        public void NIFGenerator_SemPersonalidadeJuridica_SUCCESS()
+        {
+            string generated = NIFGenerator.GenerateNIF(NIFType.SemPersonalidadeJuridica);
+
+            Assert.StartsWith("99", generated);
+
+            CommonTestsRules(generated);
+        }
 
 
 
@@ -36,7 +165,7 @@ namespace Xumiga.DataGenerator.tests
                 Assert.True(Char.IsNumber(nif[i]));
             }
 
-            int checkDigit = GetCheckDigit(nif.Substring(0,8));
+            int checkDigit = GetCheckDigit(nif.Substring(0, 8));
             int lastDigit = int.Parse(nif.Substring(8));
 
             Assert.Equal(checkDigit, lastDigit);
