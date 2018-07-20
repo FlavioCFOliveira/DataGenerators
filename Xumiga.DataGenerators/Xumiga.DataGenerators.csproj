@@ -2,6 +2,16 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Flavio CF Oliveira</Authors>
+    <Company>Flavio CF OliveiraFlavio CF Oliveira</Company>
+    <Product>Xumiga</Product>
+    <Description>Random data generation for test purposes</Description>
+    <Copyright>Flavio CF Oliveira</Copyright>
+    <RepositoryType>Git</RepositoryType>
+    <PackageProjectUrl>https://github.com/FlavioCFOliveira/DataGenerators</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/FlavioCFOliveira/DataGenerators</RepositoryUrl>
+    <PackageTags>Random Data Generation Tests</PackageTags>
   </PropertyGroup>
 
 </Project>
