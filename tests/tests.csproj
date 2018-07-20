@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TestingTools\TestingTools.csproj" />
+    <ProjectReference Include="..\TestingTools\Xumiga.DataGenerators.csproj" />
   </ItemGroup>
 
 </Project>
