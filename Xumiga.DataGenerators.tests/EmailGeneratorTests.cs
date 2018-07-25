@@ -8,21 +8,14 @@ namespace Xumiga.DataGenerator.tests
     {
 
         [Fact]
-        public void EmailGenerator_GetEmail_SUCCESS()
+        public void EmailGenerator_GenerateEmail_SUCCESS()
         {
-            var userName = StringGenerator.GetAlphabeticLower(24);
-            var domainName = StringGenerator.GetAlphabeticLower(8);
-            var domain = StringGenerator.GetAlphabeticLower(3);
-
-            string generated = EmailGenerator.GetEmail(userName, domainName, domain);
+            string generated = EmailGenerator.GenerateEmailAddress();
 
             Assert.NotNull(generated);
             Assert.NotEmpty(generated);
 
-            string expectedEmail = $"{userName}@{domainName}.{domain}";
-            Assert.Equal(expectedEmail, generated);
-
         }
-
+        
     }
 }

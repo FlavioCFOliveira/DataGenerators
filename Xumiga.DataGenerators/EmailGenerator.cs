@@ -6,20 +6,21 @@ namespace Xumiga.DataGenerators
 {
     public static class EmailGenerator
     {
+
         /// <summary>
         /// Generates a random email concidering for [userName@domainName.domain] the default random sizes are:
-        /// userName => 8 to 64 chars
+        /// userName => 8 to 32 chars
         /// domainName => 3 to 16 chars
         /// domain => 2 to 5 chars
         /// </summary>
         /// <returns></returns>
-        public static string GenerateEmail()
+        public static string GenerateEmailAddress()
         {
-            string userName = StringGenerator.GetAlphabeticLower(8, 64);
+            string userName = StringGenerator.GetAlphabeticLower(8, 32);
             string domainName = StringGenerator.GetAlphabeticLower(3, 16);
             string domain = StringGenerator.GetAlphabeticLower(2, 5);
 
-            return GetEmail(userName, domainName, domain);
+            return GetEmailAddress(userName, domainName, domain);
         }
 
         /// <summary>
@@ -27,51 +28,80 @@ namespace Xumiga.DataGenerators
         /// </summary>
         /// <param name="userNameMinSize">Minimum username ammout of chars</param>
         /// <param name="userNameMaxSize">Maximum username ammout of chars</param>
-        /// <param name="domainName">The email domain name</param>
-        /// <param name="domain">The domain extension</param>
+        /// <param name="hostName">The email domain name</param>
+        /// <param name="hostExtension">The domain extension</param>
         /// <returns></returns>
-        public static string GenerateEmail(int userNameMinSize, int userNameMaxSize, string domainName, string domain)
+        public static string GenerateEmailAddress(int userNameMinSize, int userNameMaxSize, string hostName, string hostExtension)
         {
             string userName = StringGenerator.GetAlphabetic(userNameMinSize, userNameMaxSize);
 
-            return GetEmail(userName, domainName, domain);
+            return GetEmailAddress(userName, hostName, hostExtension);
         }
 
         /// <summary>
         /// Generate an email with a fixed sizes
         /// </summary>
         /// <param name="userNameSize"></param>
-        /// <param name="domainNameSize"></param>
-        /// <param name="domainSize"></param>
+        /// <param name="hostNameSize"></param>
+        /// <param name="hostExtensionSize"></param>
         /// <returns></returns>
-        public static string GenerateEmail(int userNameSize, int domainNameSize, int domainSize)
+        public static string GenerateEmailAddress(int userNameSize, int hostNameSize, int hostExtensionSize)
         {
             string userName = StringGenerator.GetAlphabeticLower(userNameSize);
-            string domainName = StringGenerator.GetAlphabeticLower(domainNameSize);
-            string domain = StringGenerator.GetAlphabeticLower(domainSize);
+            string domainName = StringGenerator.GetAlphabeticLower(hostNameSize);
+            string domain = StringGenerator.GetAlphabeticLower(hostExtensionSize);
 
-            return GetEmail(userName, domainName, domain);
+            return GetEmailAddress(userName, domainName, domain);
         }
 
         /// <summary>
-        /// returns an email with the data provided.
+        /// Generate an email with a fixed sizes
+        /// </summary>
+        /// <param name="userNameSize"></param>
+        /// <param name="hostNameSize"></param>
+        /// <param name="hostExtensionSize"></param>
+        /// <returns></returns>
+        public static string GenerateEmailAddress(int userNameSize, int hostSize)
+        {
+            string userName = StringGenerator.GetAlphabeticLower(userNameSize);
+            string host = StringGenerator.GetAlphabeticLower(hostSize);
+
+            return GetEmailAddress(userName, host);
+        }
+
+        /// <summary>
+        /// returns an email address with the provided data.
         /// </summary>
         /// <param name="userName"></param>
-        /// <param name="domainName"></param>
-        /// <param name="domain"></param>
+        /// <param name="hostName"></param>
+        /// <param name="hostExtension"></param>
         /// <returns></returns>
-        public static string GetEmail(string userName, string domainName, string domain)
+        private static string GetEmailAddress(string userName, string hostName, string hostExtension)
         {
             if (string.IsNullOrEmpty(userName)) throw new ArgumentNullException(nameof(userName));
-            if (string.IsNullOrEmpty(domainName)) throw new ArgumentNullException(nameof(domainName));
-            if (string.IsNullOrEmpty(domain)) throw new ArgumentNullException(nameof(domain));
+            if (string.IsNullOrEmpty(hostName)) throw new ArgumentNullException(nameof(hostName));
+            if (string.IsNullOrEmpty(hostExtension)) throw new ArgumentNullException(nameof(hostExtension));
 
-            while (domain.StartsWith("."))
+            while (hostExtension.StartsWith("."))
             {
-                domain = domain.Substring(1);
+                hostExtension = hostExtension.Substring(1);
             }
 
-            return $"{userName}@{domainName}.{domain}";
+            return $"{userName}@{hostName}.{hostExtension}";
+        }
+
+        /// <summary>
+        /// returns an email address according the provided data.
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="host"></param>
+        /// <returns></returns>
+        private static string GetEmailAddress(string userName, string host)
+        {
+            if (string.IsNullOrEmpty(userName)) throw new ArgumentNullException(nameof(userName));
+            if (string.IsNullOrEmpty(host)) throw new ArgumentNullException(nameof(host));
+
+            return $"{userName}@{host}";
         }
 
     }
