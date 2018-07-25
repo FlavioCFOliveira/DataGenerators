@@ -16,6 +16,19 @@ namespace Xumiga.DataGenerator.tests
             Assert.NotEmpty(generated);
 
         }
+
+        [Fact]
+        public void EmailGenerator_GenerateEmailAddressWithWords_SUCCESS()
+        {
+            int numberOfWords = 3;
+            string wordSeparator = ".";
+
+            string generated = EmailGenerator.GenerateEmailAddressWithWords(numberOfWords, wordSeparator);
+
+            Assert.NotNull(generated);
+            Assert.NotEmpty(generated);
+
+        }
         
     }
 }

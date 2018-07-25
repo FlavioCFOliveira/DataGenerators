@@ -7,6 +7,17 @@ namespace Xumiga.DataGenerators
     public static class EmailGenerator
     {
 
+        public static string GenerateEmailAddressWithWords(int numberOfWords = 3, string separator = ".")
+        {
+            string userName = string.Join(separator, WordGenerator.GenerateWords(numberOfWords));
+            string domainName = WordGenerator.GenerateWord(4, 9);
+            string domain = StringGenerator.GetAlphabeticLower(2, 5);
+
+            return GetEmailAddress(userName, domainName, domain);
+        }
+
+
+
         /// <summary>
         /// Generates a random email concidering for [userName@domainName.domain] the default random sizes are:
         /// userName => 8 to 32 chars
@@ -87,7 +98,7 @@ namespace Xumiga.DataGenerators
                 hostExtension = hostExtension.Substring(1);
             }
 
-            return $"{userName}@{hostName}.{hostExtension}";
+            return $"{userName.Trim()}@{hostName.Trim()}.{hostExtension.Trim()}";
         }
 
         /// <summary>
@@ -101,7 +112,7 @@ namespace Xumiga.DataGenerators
             if (string.IsNullOrEmpty(userName)) throw new ArgumentNullException(nameof(userName));
             if (string.IsNullOrEmpty(host)) throw new ArgumentNullException(nameof(host));
 
-            return $"{userName}@{host}";
+            return $"{userName.Trim()}@{host.Trim()}";
         }
 
     }
