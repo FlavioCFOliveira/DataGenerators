@@ -14,10 +14,10 @@ namespace Xumiga.DataGenerators
         public static Random rand;
 
         /// <summary>
-        /// Generates a random date time between 0001-01-01T00:00:00.000Z and 9999-12-31T23:59:59.999Z
+        /// Generates a random DateTime between 0001-01-01T00:00:00.000Z and 9999-12-31T23:59:59.999Z
         /// </summary>
         /// <returns>Random datetime object</returns>
-        public static DateTime Generate()
+        public static DateTime GenerateDateTime()
         {
             int year = rand.Next(1, 9999);
             int month = rand.Next(1, 12);
@@ -30,6 +30,25 @@ namespace Xumiga.DataGenerators
 
             return new DateTime(year, month, day, hour, minutes, seconds, miliseconds, DateTimeKind.Utc);
         }
+
+        /// <summary>
+        /// Generates a random DateTime between two dates
+        /// </summary>
+        /// <param name="min">Minimum date for random generation</param>
+        /// <param name="max">Maximum date for random generation</param>
+        /// <returns>Random datetime object </returns>
+        public static DateTime GenerateDateTime(DateTime min, DateTime max)
+        {
+            if (min > max) throw new ArgumentException("Minimum date should be lower than maximum date", nameof(min));
+            if (min == max) throw new ArgumentException("Cannot generate a random date between do equal dates", nameof(min));
+            
+            TimeSpan dateDiff = max.Subtract(min);
+
+            long r = (long)(rand.NextDouble() * dateDiff.Ticks);
+
+            return min.Add(new TimeSpan(r));
+        }
+
 
         static int GetRandomMonthDay(int month)
         {
