@@ -15,7 +15,7 @@
     <AssemblyVersion>1.0.0.2</AssemblyVersion>
     <FileVersion>1.0.0.2</FileVersion>
     <Version>1.0.2</Version>
-    <PackageReleaseNotes>Added Email, IPAddress and Hexadecimal Generators</PackageReleaseNotes>
+    <PackageReleaseNotes>Added WordsGenerator and DateTime Generator</PackageReleaseNotes>
   </PropertyGroup>
 
 </Project>
