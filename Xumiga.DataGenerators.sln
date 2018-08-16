@@ -5,7 +5,12 @@ VisualStudioVersion = 15.0.27703.2000
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xumiga.DataGenerators", "Xumiga.DataGenerators\Xumiga.DataGenerators.csproj", "{98DC647E-A618-416C-985E-110F826A588B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xumiga.DataGenerators.tests", "Xumiga.DataGenerators.tests\Xumiga.DataGenerators.tests.csproj", "{E5D1C80B-CBD5-4B3E-ACEE-DC6B7A1537FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xumiga.DataGenerators.tests", "Xumiga.DataGenerators.tests\Xumiga.DataGenerators.tests.csproj", "{E5D1C80B-CBD5-4B3E-ACEE-DC6B7A1537FF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "documentation", "documentation", "{EF5FB5CE-A84D-487A-8167-B9948A336D8F}"
+	ProjectSection(SolutionItems) = preProject
+		readme.md = readme.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
