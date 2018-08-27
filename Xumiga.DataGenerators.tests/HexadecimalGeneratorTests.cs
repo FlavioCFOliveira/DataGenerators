@@ -24,7 +24,23 @@ namespace Xumiga.DataGenerator.tests
 
         }
 
+        [Fact]
+        public void HexadecimalGenerator_GenerateColor_SUCCESS()
+        {
+            string generated = HexadecimalGenerator.GenerateColor();
 
+            Assert.NotNull(generated);
+            Assert.NotEmpty(generated);
+
+            Assert.StartsWith("#", generated);
+            Assert.True(generated.Length == 7);
+
+            for (int i = 1; i < generated.Length; i++)
+            {
+                Assert.True(HEXA_CHARS.Contains(generated[i]));
+            }
+
+        }
 
 
     }

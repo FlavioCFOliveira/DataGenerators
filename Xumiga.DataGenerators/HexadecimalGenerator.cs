@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Xumiga.DataGenerators
@@ -29,6 +30,22 @@ namespace Xumiga.DataGenerators
 
             return new string(outputChars);
         }
+
+
+        /// <summary>
+        /// Generates a random string representing a color in hexadecimal format
+        /// </summary>
+        /// <returns>Hexadecimal color in the format #AAAAAA</returns>
+        public static string GenerateColor()
+        {
+            byte[] buffer = new byte[3];
+            rand.NextBytes(buffer);
+
+            string[] hexBuffer = buffer.Select(b => b.ToString("x2")).ToArray();
+
+            return $"#{string.Join(string.Empty, hexBuffer)}";
+        }
+
 
     }
 }
