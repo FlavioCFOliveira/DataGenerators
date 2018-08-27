@@ -7,7 +7,7 @@ namespace Xumiga.DataGenerator.tests
 {
     public class HexadecimalGeneratorTests
     {
-        private const string HEXA_CHARS = @"0123456789ABCDEF";
+        private const string HEXA_CHARS = @"0123456789abcdef";
 
         [Fact]
         public void HexadecimalGenerator_Generate_SUCCESS()

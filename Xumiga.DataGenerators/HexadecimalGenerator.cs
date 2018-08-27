@@ -13,7 +13,7 @@ namespace Xumiga.DataGenerators
         }
 
         public static Random rand;
-        private const string HEXA_CHARS = @"0123456789ABCDEF";
+        private const string HEXA_CHARS = @"0123456789abcdef";
 
         /// <summary>
         /// Generates a string with random Hexadecimal Random chars
