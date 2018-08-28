@@ -1,9 +1,6 @@
 pipeline {
     agent any
 
-    // define vars
-    def version = "1.0.3.${env.BUILD_NUMBER}"
-
     stages {
         stage('Checkout') {
             steps {
@@ -15,7 +12,7 @@ pipeline {
             steps {
                 echo 'Building..'
                 sh("dotnet restore Xumiga.DataGenerators.sln")
-                sh("dotnet build Xumiga.DataGenerators.sln /p:Configuration=Release /p:Platform=\"Any CPU\" /p:ProductVersion=${version}")
+                sh("dotnet build Xumiga.DataGenerators.sln /p:Configuration=Release /p:Platform=\"Any CPU\" /p:ProductVersion=1.0.3.${env.BUILD_NUMBER}")
             }
         }
         stage('Test') {
