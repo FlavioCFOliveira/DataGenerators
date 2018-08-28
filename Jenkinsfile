@@ -18,7 +18,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
-                sh("dotnet test Xumiga.DataGenerators.sln")
+                sh("dotnet test Xumiga.DataGenerators.tests/Xumiga.DataGenerators.tests.csproj")
             }
         }
         stage('Deploy') {
