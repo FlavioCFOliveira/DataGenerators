@@ -22,7 +22,7 @@ namespace Xumiga.DataGenerator.tests
             {
                 if (c != ':')
                 {
-                    Assert.True(HEX_CHARS.Contains(c));
+                    Assert.True(HEX_CHARS.Contains(c.ToString()));
                 }
             }
 
