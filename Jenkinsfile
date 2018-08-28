@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo 'Checking out code..'
-                checkout smc
+                checkout scm
             }
         }
         stage('Build') {
