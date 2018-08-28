@@ -18,7 +18,7 @@ namespace Xumiga.DataGenerator.tests
 
             for (int i = 0; i < generated.Length; i++)
             {
-                Assert.True(HEXA_CHARS.Contains(generated[i].ToString()));
+                Assert.Contains(generated[i], HEXA_CHARS);
             }
 
         }
@@ -36,7 +36,7 @@ namespace Xumiga.DataGenerator.tests
 
             for (int i = 1; i < generated.Length; i++)
             {
-                Assert.True(HEXA_CHARS.Contains(generated[i].ToString()));
+                Assert.Contains(generated[i], HEXA_CHARS);
             }
 
         }
