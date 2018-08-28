@@ -5,18 +5,21 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo 'Checking out code..'
-                Checkout smc
+                checkout scm
             }
         }
         stage('Build') {
             steps {
                 echo 'Building..'
-                bat 'nuget restore SolutionName.sln'
+                sh("dotnet restore Xumiga.DataGenerators.sln")
+                sh("dotnet build Xumiga.DataGenerators.sln /p:Configuration=Release /p:Platform=\"Any CPU\" /p:ProductVersion=1.0.3.${env.BUILD_NUMBER}")
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
+                sh("dotnet restore Xumiga.DataGenerators.tests/Xumiga.DataGenerators.tests.csproj")
+                sh("dotnet test Xumiga.DataGenerators.tests/Xumiga.DataGenerators.tests.csproj")
             }
         }
         stage('Deploy') {

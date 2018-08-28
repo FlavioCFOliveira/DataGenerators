@@ -1,7 +1,6 @@
 using System;
 using Xunit;
 using Xumiga.DataGenerators;
-using System.Net.Mail;
 using System.Globalization;
 
 namespace Xumiga.DataGenerator.tests

@@ -38,7 +38,7 @@ namespace Xumiga.DataGenerator.tests
         }
 
         [Fact]
-        public void NIFGenerator_AdministraçãoPublica_SUCCESS()
+        public void NIFGenerator_AdministracaoPublica_SUCCESS()
         {
             string generated = NIFGenerator.GenerateNIF(NIFType.AdministracaoPublica);
 
