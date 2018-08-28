@@ -11,8 +11,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                bat 'dotnet restore Xumiga.DataGenerators.sln'
-                bat "dotnet build Xumiga.DataGenerators.sln /p:Configuration=Release /p:Platform=\"Any CPU\" /p:ProductVersion=1.0.3.${env.BUILD_NUMBER}"
+                run 'dotnet restore Xumiga.DataGenerators.sln'
+                run "dotnet build Xumiga.DataGenerators.sln /p:Configuration=Release /p:Platform=\"Any CPU\" /p:ProductVersion=1.0.3.${env.BUILD_NUMBER}"
             }
         }
         stage('Test') {
