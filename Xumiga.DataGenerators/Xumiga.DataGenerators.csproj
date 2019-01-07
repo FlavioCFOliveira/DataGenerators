@@ -6,17 +6,16 @@
     <Authors>Flavio CF Oliveira</Authors>
     <Company>Flavio CF OliveiraFlavio CF Oliveira</Company>
     <Product>Xumiga</Product>
-    <Description>Random data generation for unit tests purposes</Description>
+    <Description>Random data generation for tests purposes</Description>
     <Copyright>Flavio CF Oliveira</Copyright>
     <RepositoryType>Git</RepositoryType>
     <PackageProjectUrl>https://github.com/FlavioCFOliveira/DataGenerators</PackageProjectUrl>
     <RepositoryUrl>https://github.com/FlavioCFOliveira/DataGenerators</RepositoryUrl>
     <PackageTags>Random Data Generation Tests</PackageTags>
-    <AssemblyVersion>1.0.0.3</AssemblyVersion>
-    <FileVersion>1.0.0.3</FileVersion>
-    <Version>1.0.3</Version>
-    <PackageReleaseNotes>Added MAC address generator
-Added hexadecimal generator</PackageReleaseNotes>
+    <AssemblyVersion>1.0.0.4</AssemblyVersion>
+    <FileVersion>1.0.0.4</FileVersion>
+    <Version>1.0.4</Version>
+    <PackageReleaseNotes>NumericGenerator</PackageReleaseNotes>
   </PropertyGroup>
 
 </Project>
