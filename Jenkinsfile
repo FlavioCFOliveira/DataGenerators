@@ -11,7 +11,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh("dotnet restore Xumiga.DataGenerators.sln")
+                sh label:'restore', script:'dotnet restore Xumiga.DataGenerators.sln'
                 sh("dotnet build Xumiga.DataGenerators.sln /p:Configuration=Release /p:Platform=\"Any CPU\" /p:ProductVersion=1.0.4.${env.BUILD_NUMBER}")
             }
         }
@@ -27,6 +27,7 @@ pipeline {
     post {
         always {
             archiveArtifacts artifacts: '**/Release/**/Xumiga.DataGenerators.dll', onlyIfSuccessful: true
+            clearWs()
         }
     }
 
