@@ -3,16 +3,16 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                deleteDir()
                 echo 'Checking out code..'
                 checkout scm
             }
         }
         stage('Build') {
             steps {
-                echo 'Building..'
-                sh label:'restore', script:'dotnet restore Xumiga.DataGenerators.sln'
-                sh("dotnet build Xumiga.DataGenerators.sln /p:Configuration=Release /p:Platform=\"Any CPU\" /p:ProductVersion=1.0.4.${env.BUILD_NUMBER}")
+                sh label:'Restore & Build', script:'''
+                    dotnet restore Xumiga.DataGenerators.sln
+                    dotnet build Xumiga.DataGenerators.sln /p:Configuration=Release /p:Platform=\"Any CPU\" /p:ProductVersion=1.0.4.${env.BUILD_NUMBER}
+                '''
             }
         }
         stage('Test') {
@@ -27,7 +27,7 @@ pipeline {
     post {
         always {
             archiveArtifacts artifacts: '**/Release/**/Xumiga.DataGenerators.dll', onlyIfSuccessful: true
-            clearWs()
+            cleanWs deleteDirs: true
         }
     }
 
