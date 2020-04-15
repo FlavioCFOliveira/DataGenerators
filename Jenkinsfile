@@ -4,7 +4,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo 'Checking out code..'
-                cleanWs()
+                deleteDir()
                 checkout scm
             }
         }
