@@ -16,19 +16,14 @@ pipeline {
         stage('Test') {
             steps {
                 sh label:'Restore Packages', script:'dotnet restore Xumiga.DataGenerators.tests/Xumiga.DataGenerators.tests.csproj'
-                sh label:'Run Tests', script:"dotnet test Xumiga.DataGenerators.tests/Xumiga.DataGenerators.tests.csproj --logger 'trx;LogFileName=${env.WORKSPACE}/TestsReport-1.0.4.${env.BUILD_NUMBER}.trx' -v n"
-                mstest keepLongStdio: true
-            }
-        }
-        stage('Build Nuget') {
-            steps {
-                sh label:'Restore Packages', script:"dotnet pack 'Xumiga.DataGenerators/Xumiga.DataGenerators.csproj' -c release"
+                sh label:'Run Tests', script:"dotnet test Xumiga.DataGenerators.tests/Xumiga.DataGenerators.tests.csproj --logger 'trx;LogFileName=${env.WORKSPACE}/TestsReport-1.0.4.${env.BUILD_NUMBER}.trx'"
             }
         }
     }
     post {
         always {
             archiveArtifacts artifacts: '**/Xumiga.DataGenerators.*.nupkg', onlyIfSuccessful: true
+            mstest keepLongStdio: true
             cleanWs deleteDirs: true
         }
     }
