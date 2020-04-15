@@ -5,6 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo 'Checking out code..'
+                cleanWs()
                 checkout scm
             }
         }
