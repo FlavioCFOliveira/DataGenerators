@@ -10,8 +10,8 @@ pipeline {
         stage('Build') {
             steps {
                 sh label:'Restore Packages', script:'dotnet restore Xumiga.DataGenerators.sln'
-                sh label:'Build', script:"dotnet build Xumiga.DataGenerators.sln -c Release /p:Platform='Any CPU' /p:ProductVersion=1.0.4.${env.BUILD_NUMBER}"
-            }
+                sh label:'Build', script:"dotnet build Xumiga.DataGenerators.sln -c Release /p:Platform='Any CPU' /p:ProductVersion=1.0.4.${env.BUILD_NUMBER} /p:Version=1.0.4.${env.BUILD_NUMBER}"
+            } 
         }
         stage('Test') {
             steps {
