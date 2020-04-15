@@ -11,7 +11,7 @@ pipeline {
             steps {
                 sh label:'Restore & Build', script:'''
                     dotnet restore Xumiga.DataGenerators.sln
-                    dotnet build Xumiga.DataGenerators.sln /p:Configuration=Release /p:Platform=\"Any CPU\" /p:ProductVersion=1.0.4.${env.BUILD_NUMBER}
+                    dotnet build Xumiga.DataGenerators.sln /p:Configuration=Release /p:Platform="Any CPU" /p:ProductVersion=1.0.4.${env.BUILD_NUMBER}
                 '''
             }
         }
