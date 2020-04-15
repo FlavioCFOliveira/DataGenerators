@@ -3,8 +3,8 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                echo 'Checking out code..'
                 deleteDir()
+                echo 'Checking out code..'
                 checkout scm
             }
         }
@@ -26,7 +26,7 @@ pipeline {
     }
     post {
         always {
-            archiveArtifacts artifacts: '**/Xumiga.DataGenerators.dll', onlyIfSuccessful: true
+            archiveArtifacts artifacts: '**/Release/**/Xumiga.DataGenerators.dll', onlyIfSuccessful: true
         }
     }
 
