@@ -15,16 +15,15 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
-                sh("dotnet restore Xumiga.DataGenerators.tests/Xumiga.DataGenerators.tests.csproj")
-                sh("dotnet test Xumiga.DataGenerators.tests/Xumiga.DataGenerators.tests.csproj --logger 'trx;LogFileName=${env.WORKSPACE}/TestsReport-1.0.4.${env.BUILD_NUMBER}.trx' -v n")
+                sh label:'Restore Packages', script:'dotnet restore Xumiga.DataGenerators.tests/Xumiga.DataGenerators.tests.csproj'
+                sh label:'Run Tests', script:"dotnet test Xumiga.DataGenerators.tests/Xumiga.DataGenerators.tests.csproj --logger 'trx;LogFileName=${env.WORKSPACE}/TestsReport-1.0.4.${env.BUILD_NUMBER}.trx' -v n"
                 mstest keepLongStdio: true
             }
         }
     }
     post {
         always {
-            archiveArtifacts artifacts: '**/Release/**/Xumiga.DataGenerators.dll', onlyIfSuccessful: true
+            archiveArtifacts artifacts: '**/bin/Release/**/Xumiga.DataGenerators.dll', onlyIfSuccessful: true
             cleanWs deleteDirs: true
         }
     }
