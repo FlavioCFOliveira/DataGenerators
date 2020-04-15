@@ -19,13 +19,8 @@ pipeline {
             steps {
                 echo 'Testing..'
                 sh("dotnet restore Xumiga.DataGenerators.tests/Xumiga.DataGenerators.tests.csproj")
-                sh("dotnet test Xumiga.DataGenerators.tests/Xumiga.DataGenerators.tests.csproj --logger 'trx;LogFileName=${env.WORKSPACE}/TestsReport-1.0.4.${env.BUILD_NUMBER}.trx'")
+                sh("dotnet test Xumiga.DataGenerators.tests/Xumiga.DataGenerators.tests.csproj --logger 'trx;LogFileName=${env.WORKSPACE}/TestsReport-1.0.4.${env.BUILD_NUMBER}.trx' --no-build -v n")
                 mstest keepLongStdio: true
-            }
-        }
-        stage('Archive atricacts') {
-            steps {
-                echo 'Deploying....'
             }
         }
     }
