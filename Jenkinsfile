@@ -22,7 +22,7 @@ pipeline {
     }
     post {
         always {
-            archiveArtifacts artifacts: '**/Xumiga.DataGenerators.*.nupkg', onlyIfSuccessful: true
+            archiveArtifacts artifacts: '**/Release/**/Xumiga.DataGenerators.*.nupkg', onlyIfSuccessful: true
             mstest keepLongStdio: true
             cleanWs deleteDirs: true
         }
