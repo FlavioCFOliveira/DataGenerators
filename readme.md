@@ -3,7 +3,8 @@ My main purpose for this project is to help creating random data for unit tests 
 This is a project that i'm developing as my dailly needs are dictated, but as i decided to meke it public your suggestions are very, very welcome.
 
 **Example**
-```
+
+```c#
 using Xumiga.DataGenerators;
 
 namespace Xumiga.DataGenerator.Tests
@@ -40,6 +41,7 @@ Random data Generators
 - **IPAddressGenerator** - Generates a random ip address
 - **MACAddressGenerator** - Generates a random MAC address
 - **NIFGenerator** - Generates a random valid Portuguese NIF
-
+- **NumericGenerator** - Generates a random numbers
+- [**RandomEnumGenerator**](docs/RandomEnumGenerator.md) - Gets a Random value from a given Enum
 
 Documentation is being written...

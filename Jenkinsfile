@@ -7,8 +7,6 @@ pipeline {
         stage('Build') {
             steps {
                 echo '''
-
-
                 ----------------------------------------------'''
                 echo "Building version ${ver}"
                 sh label:'Restore Packages', script:'dotnet restore Xumiga.DataGenerators.sln'
@@ -18,8 +16,6 @@ pipeline {
         stage('Test') {
             steps {
                 echo '''
-
-
                 ----------------------------------------------'''
                 echo "Testing binaries ${ver}"
                 sh label:'Restore Packages', script:'dotnet restore Xumiga.DataGenerators.tests/Xumiga.DataGenerators.tests.csproj'
