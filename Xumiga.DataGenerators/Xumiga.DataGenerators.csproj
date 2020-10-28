@@ -12,20 +12,14 @@
     <PackageProjectUrl>https://github.com/FlavioCFOliveira/DataGenerators</PackageProjectUrl>
     <RepositoryUrl>https://github.com/FlavioCFOliveira/DataGenerators</RepositoryUrl>
     <PackageTags>Random Data Generation Tests</PackageTags>
-    <AssemblyVersion>1.0.5.0</AssemblyVersion>
-    <FileVersion>1.0.5.0</FileVersion>
-    <Version>1.0.5.0</Version>
+    <AssemblyVersion>1.0.6.0</AssemblyVersion>
+    <FileVersion>1.0.6.0</FileVersion>
+    <Version>1.0.6.0</Version>
     <PackageReleaseNotes></PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="NomesProprios.txt" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="Apelidos.txt">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Apelidos.txt" />
     <EmbeddedResource Include="NomesProprios.txt" />
   </ItemGroup>
 </Project>
