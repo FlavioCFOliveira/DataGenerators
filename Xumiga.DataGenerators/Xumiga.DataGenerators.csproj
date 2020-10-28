@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp1.0</TargetFramework>
@@ -12,10 +12,20 @@
     <PackageProjectUrl>https://github.com/FlavioCFOliveira/DataGenerators</PackageProjectUrl>
     <RepositoryUrl>https://github.com/FlavioCFOliveira/DataGenerators</RepositoryUrl>
     <PackageTags>Random Data Generation Tests</PackageTags>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>1.0.0.0</FileVersion>
-    <Version>1.0.0.0</Version>
+    <AssemblyVersion>1.0.5.0</AssemblyVersion>
+    <FileVersion>1.0.5.0</FileVersion>
+    <Version>1.0.5.0</Version>
     <PackageReleaseNotes></PackageReleaseNotes>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="NomesProprios.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Apelidos.txt">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NomesProprios.txt" />
+  </ItemGroup>
 </Project>

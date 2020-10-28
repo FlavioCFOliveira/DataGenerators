@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2000
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xumiga.DataGenerators", "Xumiga.DataGenerators\Xumiga.DataGenerators.csproj", "{98DC647E-A618-416C-985E-110F826A588B}"
 EndProject
@@ -9,6 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xumiga.DataGenerators.tests
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "documentation", "documentation", "{EF5FB5CE-A84D-487A-8167-B9948A336D8F}"
 	ProjectSection(SolutionItems) = preProject
+		docs\RandomEnumGenerator.md = docs\RandomEnumGenerator.md
 		readme.md = readme.md
 	EndProjectSection
 EndProject
