@@ -16,10 +16,7 @@ namespace Xumiga.DataGenerator.tests
             for (int i = 0; i < 1000; i++)
             {
                 lst.Add(NumericGenerator.GenerateDecimal(8, 2));
-
             }
-
-
         }
 
 

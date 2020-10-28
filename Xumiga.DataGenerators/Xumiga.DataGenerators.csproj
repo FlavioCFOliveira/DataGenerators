@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp1.0</TargetFramework>
@@ -18,4 +18,14 @@
     <PackageReleaseNotes></PackageReleaseNotes>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="NomesProprios.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Apelidos.txt">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NomesProprios.txt" />
+  </ItemGroup>
 </Project>

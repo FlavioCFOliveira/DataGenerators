@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Xumiga.DataGenerators
@@ -16,34 +17,34 @@ namespace Xumiga.DataGenerators
 
         public static Random rand;
 
-        public static string[] GenerateWords(int numberOfWords)
+        public static string[] GenerateWords(int numberOfWords, bool capitalFirstLetter = false)
         {
             var result = new string[numberOfWords];
 
             for (int i = 0; i < numberOfWords; i++)
             {
-                result[i] = GenerateWord(rand.Next(2, 12));
+                result[i] = GenerateWord(rand.Next(2, 12), capitalFirstLetter);
             }
 
             return result;
         }
-        public static string[] GenerateWords(int numberOfWords, int minOutputSize, int maxOutputSize)
+        public static string[] GenerateWords(int numberOfWords, int minOutputSize, int maxOutputSize, bool capitalFirstLetter = false)
         {
             var result = new string[numberOfWords];
 
             for (int i = 0; i < numberOfWords; i++)
             {
-                result[i] = GenerateWord(minOutputSize, maxOutputSize);
+                result[i] = GenerateWord(minOutputSize, maxOutputSize, capitalFirstLetter);
             }
 
             return result;
         }
 
-        public static string GenerateWord(int minOutputSize, int maxOutputSize)
+        public static string GenerateWord(int minOutputSize, int maxOutputSize, bool capitalFirstLetter = false)
         {
-            return GenerateWord(rand.Next(minOutputSize, maxOutputSize));
+            return GenerateWord(rand.Next(minOutputSize, maxOutputSize), capitalFirstLetter);
         }
-        public static string GenerateWord(int outputSize)
+        public static string GenerateWord(int outputSize, bool capitalFirstLetter = false)
         {
             string result = string.Empty;
 
@@ -65,6 +66,11 @@ namespace Xumiga.DataGenerators
             if (result.Length > outputSize)
             {
                 result = result.Substring(0, outputSize);
+            }
+
+            if (capitalFirstLetter)
+            {
+                result = result.First().ToString().ToUpper() + result.Substring(1);
             }
 
             return result;
