@@ -19,11 +19,11 @@ namespace Xumiga.DataGenerators
         }
         public static int GenerateInteger(int maxValue)
         {
-            return rand.Next(maxValue);
+            return rand.Next(maxValue + 1);
         }
         public static int GenerateInteger(int minValue, int maxValue)
         {
-            return rand.Next(minValue, maxValue);
+            return rand.Next(minValue, maxValue + 1);
         }
 
 
