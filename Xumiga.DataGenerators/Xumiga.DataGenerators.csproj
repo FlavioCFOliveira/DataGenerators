@@ -12,14 +12,29 @@
     <PackageProjectUrl>https://github.com/FlavioCFOliveira/DataGenerators</PackageProjectUrl>
     <RepositoryUrl>https://github.com/FlavioCFOliveira/DataGenerators</RepositoryUrl>
     <PackageTags>Random Data Generation Tests</PackageTags>
-    <AssemblyVersion>1.0.6.0</AssemblyVersion>
-    <FileVersion>1.0.6.0</FileVersion>
-    <Version>1.0.6.0</Version>
+    <AssemblyVersion>1.0.7</AssemblyVersion>
+    <FileVersion>1.0.7</FileVersion>
+    <Version>1.0.7</Version>
     <PackageReleaseNotes></PackageReleaseNotes>
+    <PackageLicenseExpression>"Free for personal and commersial usage"</PackageLicenseExpression>
+    <PackageIcon>xumiga-icon.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Apelidos.txt" />
     <EmbeddedResource Include="NomesProprios.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="img\xumiga-icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+  <ItemGroup>
+    <Resource Include="img\xumiga-icon.png" />
   </ItemGroup>
 </Project>
