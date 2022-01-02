@@ -1,24 +1,27 @@
-﻿using System;
-using System.CodeDom.Compiler;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-
-namespace Xumiga.DataGenerators
+﻿namespace Xumiga.DataGenerators
 {
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Reflection;
+
     public class NamesGenerator
     {
+        public static readonly Random rand;
+        private static readonly List<string> Apelidos;
+        private static readonly List<string> NomesProprios;
+
         static NamesGenerator()
         {
             rand = new Random();
 
-            var aaa = Assembly.Load(new AssemblyName("Xumiga.DataGenerators"));
+            var ass = Assembly.Load(new AssemblyName("Xumiga.DataGenerators"));
+
 
             Apelidos = new List<string>();
-            var apleidos = aaa.GetManifestResourceNames().Where(n => n.EndsWith("Apelidos.txt")).FirstOrDefault();
-            using (var sr = new StreamReader(aaa.GetManifestResourceStream(apleidos)))
+            var apleidos = ass.GetManifestResourceNames().Where(n => n.EndsWith("Apelidos.txt")).FirstOrDefault();
+            using (var sr = new StreamReader(ass.GetManifestResourceStream(apleidos)))
             {
                 string line;
                 while ((line = sr.ReadLine()) != null)
@@ -28,8 +31,8 @@ namespace Xumiga.DataGenerators
             }
 
             NomesProprios = new List<string>();
-            var nomesProprios = aaa.GetManifestResourceNames().Where(n => n.EndsWith("NomesProprios.txt")).FirstOrDefault();
-            using (var sr = new StreamReader(aaa.GetManifestResourceStream(nomesProprios)))
+            var nomesProprios = ass.GetManifestResourceNames().Where(n => n.EndsWith("NomesProprios.txt")).FirstOrDefault();
+            using (var sr = new StreamReader(ass.GetManifestResourceStream(nomesProprios)))
             {
                 string line;
                 while ((line = sr.ReadLine()) != null)
@@ -40,11 +43,6 @@ namespace Xumiga.DataGenerators
             }
 
         }
-
-        public static Random rand;
-        private static List<string> Apelidos;
-        private static List<string> NomesProprios;
-
 
         public static string GetRandomName()
         {
@@ -71,7 +69,6 @@ namespace Xumiga.DataGenerators
 
             return string.Join(" ", lst);
         }
-
 
     }
 }

@@ -1,24 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Xumiga.DataGenerators
+﻿namespace Xumiga.DataGenerators
 {
-    //https://en.wikipedia.org/wiki/MAC_address
+    using System;
+    using System.Linq;
+
     public static class MACAddressGenerator
     {
+        public static readonly Random rand;
+
         static MACAddressGenerator()
         {
             rand = new Random();
         }
-        public static Random rand;
-
 
         public static string Generate(string separator = ":")
         {
             if (separator == null) separator = string.Empty;
-            
+
             if (separator != ":" && separator != "-" && separator != "" && separator != string.Empty)
             {
                 throw new ArgumentException("Invalid separator character", nameof(separator));

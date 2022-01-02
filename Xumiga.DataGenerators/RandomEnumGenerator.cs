@@ -1,27 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Xumiga.DataGenerators
+﻿namespace Xumiga.DataGenerators
 {
+    using System;
+
     public static class RandomEnumGenerator
     {
+        public static readonly Random rand;
+
         static RandomEnumGenerator()
         {
             rand = new Random();
         }
 
-        public static Random rand;
-
-        public static T GetRandom<T>() where T: IConvertible
+        public static T GetRandom<T>() where T : IConvertible
         {
             var items = Enum.GetNames(typeof(T));
-            
+
             var rnd = rand.Next(items.Length);
 
             return (T)Enum.Parse(typeof(T), items[rnd]);
         }
-
 
     }
 }

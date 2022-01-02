@@ -1,9 +1,8 @@
-using System;
-using Xunit;
-using Xumiga.DataGenerators;
-
 namespace Xumiga.DataGenerator.tests
 {
+    using Xumiga.DataGenerators;
+    using Xunit;
+
     public class HexadecimalGeneratorTests
     {
         private const string HEXA_CHARS = @"0123456789abcdef";
@@ -40,7 +39,6 @@ namespace Xumiga.DataGenerator.tests
             }
 
         }
-
 
     }
 }

@@ -1,9 +1,8 @@
-using System;
-using Xunit;
-using Xumiga.DataGenerators;
-
 namespace Xumiga.DataGenerator.tests
 {
+    using Xumiga.DataGenerators;
+    using Xunit;
+
     public class EmailGeneratorTests
     {
 
@@ -14,7 +13,6 @@ namespace Xumiga.DataGenerator.tests
 
             Assert.NotNull(generated);
             Assert.NotEmpty(generated);
-
         }
 
         [Fact]
@@ -27,8 +25,7 @@ namespace Xumiga.DataGenerator.tests
 
             Assert.NotNull(generated);
             Assert.NotEmpty(generated);
-
         }
-        
+
     }
 }

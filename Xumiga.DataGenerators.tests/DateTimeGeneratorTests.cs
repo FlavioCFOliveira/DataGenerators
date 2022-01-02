@@ -1,12 +1,11 @@
-using System;
-using Xunit;
-using Xumiga.DataGenerators;
-
 namespace Xumiga.DataGenerator.tests
 {
+    using System;
+    using Xumiga.DataGenerators;
+    using Xunit;
+
     public class DateTimeGeneratorTests
     {
-
         [Fact]
         public void DateTimeGenerator_GenerateDateTime_50X_SUCCESS()
         {
@@ -16,8 +15,6 @@ namespace Xumiga.DataGenerator.tests
                 Assert.NotEqual(new DateTime(), generated);
             }
         }
-
-
 
         [Fact]
         public void DateTimeGenerator_GenerateDateTime_Ranged_50X_SUCCESS()

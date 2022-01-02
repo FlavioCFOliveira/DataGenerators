@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Xumiga.DataGenerators
+﻿namespace Xumiga.DataGenerators
 {
+    using System;
+
     public static class RandomLongExtensionMethods
     {
         /// <summary>

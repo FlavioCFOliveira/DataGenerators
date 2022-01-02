@@ -1,15 +1,14 @@
-using System;
-using Xunit;
-using Xumiga.DataGenerators;
-
 namespace Xumiga.DataGenerator.tests
 {
+    using Xumiga.DataGenerators;
+    using Xunit;
+
     public class NamesGeneratorTests
     {
 
         [Fact]
         public void NamesGenerator_GetRandomName()
-        {            
+        {
             var val = NamesGenerator.GetRandomName();
 
             Assert.True(!string.IsNullOrEmpty(val));
@@ -28,8 +27,8 @@ namespace Xumiga.DataGenerator.tests
         public void NamesGenerator_GetRandomFullName()
         {
             var val1 = NamesGenerator.GetRandomFullName();
-            var val2 = NamesGenerator.GetRandomFullName(3,3);
-            var val3 = NamesGenerator.GetRandomFullName(10,10);
+            var val2 = NamesGenerator.GetRandomFullName(3, 3);
+            var val3 = NamesGenerator.GetRandomFullName(10, 10);
 
             Assert.True(!string.IsNullOrEmpty(val1));
             Assert.True(!string.IsNullOrEmpty(val2));

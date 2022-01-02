@@ -1,9 +1,9 @@
-using System;
-using Xunit;
-using Xumiga.DataGenerators;
-
 namespace Xumiga.DataGenerator.tests
 {
+    using System;
+    using Xumiga.DataGenerators;
+    using Xunit;
+
     public class MACAddressGeneratorTests
     {
         private const string HEX_CHARS = "0123456789abcdef";

@@ -28,13 +28,10 @@ namespace Xumiga.DataGenerator.tests
             // all chars are valid
             foreach (char c in generated)
             {
-                Assert.True(ALPHABETIC_CHARS.Contains(c.ToString()));
+                Assert.Contains(c, ALPHABETIC_CHARS);
             }
 
         }
-
-
-
 
     }
 }

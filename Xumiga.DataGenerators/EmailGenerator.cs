@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Xumiga.DataGenerators
+﻿namespace Xumiga.DataGenerators
 {
+    using System;
+
     public static class EmailGenerator
     {
-
         public static string GenerateEmailAddressWithWords(int numberOfWords = 3, string separator = ".")
         {
             string userName = string.Join(separator, WordGenerator.GenerateWords(numberOfWords));
@@ -15,8 +12,6 @@ namespace Xumiga.DataGenerators
 
             return GetEmailAddress(userName, domainName, domain);
         }
-
-
 
         /// <summary>
         /// Generates a random email concidering for [userName@domainName.domain] the default random sizes are:

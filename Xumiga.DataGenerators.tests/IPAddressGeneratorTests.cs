@@ -1,13 +1,11 @@
-using System;
-using Xunit;
-using Xumiga.DataGenerators;
-using System.Globalization;
-
 namespace Xumiga.DataGenerator.tests
 {
+    using System.Globalization;
+    using Xumiga.DataGenerators;
+    using Xunit;
+
     public class IPAddressGeneratorTests
     {
-        private const string HEXA_CHARS = @"0123456789ABCDEF";
 
         [Fact]
         public void IPAddressGenerator_GenerateIPV4Address_SUCCESS()

@@ -5,7 +5,7 @@ using Xunit;
 
 namespace Xumiga.DataGenerator.tests
 {
-    public class NumericGeneratorTestsTests
+    public class NumericGeneratorTests
     {
 
         [Fact]

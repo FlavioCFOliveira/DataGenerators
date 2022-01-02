@@ -1,17 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Xumiga.DataGenerators
+﻿namespace Xumiga.DataGenerators
 {
+    using System;
+    using System.Globalization;
+
     public static class NumericGenerator
     {
+        public static readonly Random rand;
+        public static readonly NumberFormatInfo culture;
+
         static NumericGenerator()
         {
             rand = new Random();
+            culture = NumberFormatInfo.CurrentInfo;
         }
-
-        public static Random rand;
 
         public static int GenerateInteger()
         {
@@ -25,7 +26,6 @@ namespace Xumiga.DataGenerators
         {
             return rand.Next(minValue, maxValue + 1);
         }
-
 
         public static byte GenerateByte()
         {
@@ -47,6 +47,7 @@ namespace Xumiga.DataGenerators
         {
             return rand.NextLong(min, max);
         }
+
         public static short GenerateShort(short minValue, short maxValue)
         {
             return (short)rand.Next((int)minValue, (int)maxValue);
@@ -64,9 +65,11 @@ namespace Xumiga.DataGenerators
             int randScale = NumericGenerator.GenerateInteger(1, scale + 1);
             var b = StringGenerator.GetNumeric(randScale);
 
-            decimal result = decimal.Parse($"{a}.{b}");
+            decimal result = decimal.Parse($"{a}{culture.NumberDecimalSeparator}{b}");
 
             return result;
         }
+
     }
+
 }

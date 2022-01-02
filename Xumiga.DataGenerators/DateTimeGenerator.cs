@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Xumiga.DataGenerators
+﻿namespace Xumiga.DataGenerators
 {
+    using System;
+
     public static class DateTimeGenerator
     {
+        public static readonly Random rand;
 
         static DateTimeGenerator()
         {
             rand = new Random();
         }
-        public static Random rand;
 
         /// <summary>
         /// Generates a random DateTime between 0001-01-01T00:00:00.000Z and 9999-12-31T23:59:59.999Z
@@ -41,7 +39,7 @@ namespace Xumiga.DataGenerators
         {
             if (min > max) throw new ArgumentException("Minimum date should be lower than maximum date", nameof(min));
             if (min == max) throw new ArgumentException("Cannot generate a random date between do equal dates", nameof(min));
-            
+
             TimeSpan dateDiff = max.Subtract(min);
 
             long r = (long)(rand.NextDouble() * dateDiff.Ticks);

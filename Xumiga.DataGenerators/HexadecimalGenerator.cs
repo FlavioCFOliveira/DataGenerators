@@ -1,19 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Xumiga.DataGenerators
+﻿namespace Xumiga.DataGenerators
 {
+    using System;
+    using System.Linq;
+
     public static class HexadecimalGenerator
     {
+        public static readonly Random rand;
+        private const string HEXA_CHARS = @"0123456789abcdef";
+
         static HexadecimalGenerator()
         {
             rand = new Random();
         }
-
-        public static Random rand;
-        private const string HEXA_CHARS = @"0123456789abcdef";
 
         /// <summary>
         /// Generates a string with random Hexadecimal Random chars
@@ -45,7 +43,6 @@ namespace Xumiga.DataGenerators
 
             return $"#{string.Join(string.Empty, hexBuffer)}";
         }
-
 
     }
 }

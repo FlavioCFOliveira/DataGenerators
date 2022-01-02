@@ -1,11 +1,80 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Xumiga.DataGenerators
+﻿namespace Xumiga.DataGenerators
 {
+    using System;
 
-    //https://pt.wikipedia.org/wiki/N%C3%BAmero_de_identifica%C3%A7%C3%A3o_fiscal
+    public static class NIFGenerator
+    {
+        public static readonly Random rand;
+
+        static NIFGenerator()
+        {
+            rand = new Random();
+        }
+
+        public static string GenerateNIF()
+        {
+            NIFType randdomType = NIFType.PessoaSingular;
+
+            var values = Enum.GetValues(typeof(NIFType));
+            int rPosition = rand.Next(0, values.Length - 1);
+
+            randdomType = (NIFType)values.GetValue(rPosition);
+
+            return GenerateNIF(randdomType);
+        }
+
+        public static string GenerateNIF(NIFType t)
+        {
+            string number = string.Empty;
+            string checkDigit = string.Empty;
+
+            // RANDOM NUMBER GENERATION
+            switch (t)
+            {
+                case NIFType.PessoaSingular: number = "1" + StringGenerator.GetNumeric(7); break;
+                case NIFType.PessoaSingularEstrangeiro: number = "45" + StringGenerator.GetNumeric(6); break;
+                case NIFType.PessoaColectiva: number = "5" + StringGenerator.GetNumeric(7); break;
+                case NIFType.AdministracaoPublica: number = "6" + StringGenerator.GetNumeric(7); break;
+                case NIFType.HerancaIndivisa: number = "70" + StringGenerator.GetNumeric(6); break;
+                case NIFType.NaoResidentesColectivos: number = "71" + StringGenerator.GetNumeric(6); break;
+                case NIFType.FundosDeInvestimento: number = "72" + StringGenerator.GetNumeric(6); break;
+                case NIFType.AtribuicaoOficiosaSujeitoPassivo: number = "77" + StringGenerator.GetNumeric(6); break;
+                case NIFType.AtribuicaoOficiosaNaoResidentes: number = "78" + StringGenerator.GetNumeric(6); break;
+                case NIFType.RegimeExcepcional: number = "79" + StringGenerator.GetNumeric(6); break;
+                case NIFType.EmpresarioEmNomeIndividual: number = "8" + StringGenerator.GetNumeric(7); break;
+                case NIFType.Condominios: number = "90" + StringGenerator.GetNumeric(6); break;
+                case NIFType.NaoResidentes: number = "98" + StringGenerator.GetNumeric(6); break;
+                case NIFType.SemPersonalidadeJuridica: number = "99" + StringGenerator.GetNumeric(6); break;
+                default: number = "1" + StringGenerator.GetNumeric(7); break;
+            }
+
+            // CHECK DIGIT
+            byte[] multiplyValues = new byte[] { 9, 8, 7, 6, 5, 4, 3, 2 };
+            int Total = 0;
+
+            for (int i = 0; i < number.Length; i++)
+            {
+                byte b = byte.Parse(number[i].ToString());
+                int multiplyResult = b * multiplyValues[i];
+                Total += multiplyResult;
+            }
+
+            int resto = Total % 11;
+
+            if (resto == 0 || resto == 1)
+            {
+                checkDigit = "0";
+            }
+            else
+            {
+                checkDigit = (11 - resto).ToString();
+            }
+
+            return $"{number}{checkDigit}";
+        }
+
+    }
+
     public enum NIFType : int
     {
 
@@ -78,79 +147,6 @@ namespace Xumiga.DataGenerators
         /// 99: Sociedades civis sem personalidade jurídica.
         /// </summary>
         SemPersonalidadeJuridica = 14
-
-    }
-
-    public static class NIFGenerator
-    {
-        static NIFGenerator()
-        {
-            rand = new Random();
-        }
-
-        public static Random rand;
-
-        public static string GenerateNIF()
-        {
-            NIFType randdomType = NIFType.PessoaSingular;
-
-            var values = Enum.GetValues(typeof(NIFType));
-            int rPosition = rand.Next(0, values.Length - 1);
-            
-            randdomType = (NIFType)values.GetValue(rPosition);
-            
-            return GenerateNIF(randdomType);
-        }
-
-        public static string GenerateNIF(NIFType t)
-        {
-            string number = string.Empty;
-            string checkDigit = string.Empty;
-
-            // RANDOM NUMBER GENERATION
-            switch (t)
-            {
-                case NIFType.PessoaSingular: number = "1" + StringGenerator.GetNumeric(7); break;
-                case NIFType.PessoaSingularEstrangeiro: number = "45" + StringGenerator.GetNumeric(6); break;
-                case NIFType.PessoaColectiva: number = "5" + StringGenerator.GetNumeric(7); break;
-                case NIFType.AdministracaoPublica: number = "6" + StringGenerator.GetNumeric(7); break;
-                case NIFType.HerancaIndivisa: number = "70" + StringGenerator.GetNumeric(6); break;
-                case NIFType.NaoResidentesColectivos: number = "71" + StringGenerator.GetNumeric(6); break;
-                case NIFType.FundosDeInvestimento: number = "72" + StringGenerator.GetNumeric(6); break;
-                case NIFType.AtribuicaoOficiosaSujeitoPassivo: number = "77" + StringGenerator.GetNumeric(6); break;
-                case NIFType.AtribuicaoOficiosaNaoResidentes: number = "78" + StringGenerator.GetNumeric(6); break;
-                case NIFType.RegimeExcepcional: number = "79" + StringGenerator.GetNumeric(6); break;
-                case NIFType.EmpresarioEmNomeIndividual: number = "8" + StringGenerator.GetNumeric(7); break;
-                case NIFType.Condominios: number = "90" + StringGenerator.GetNumeric(6); break;
-                case NIFType.NaoResidentes: number = "98" + StringGenerator.GetNumeric(6); break;
-                case NIFType.SemPersonalidadeJuridica: number = "99" + StringGenerator.GetNumeric(6); break;
-                default: number = "1" + StringGenerator.GetNumeric(7); break;
-            }
-
-            // CHECK DIGIT
-            byte[] multiplyValues = new byte[] { 9, 8, 7, 6, 5, 4, 3, 2 };
-            int Total = 0;
-
-            for (int i = 0; i < number.Length; i++)
-            {
-                byte b = byte.Parse(number[i].ToString());
-                int multiplyResult = b * multiplyValues[i];
-                Total += multiplyResult;
-            }
-
-            int resto = Total % 11;
-
-            if (resto == 0 || resto == 1) {
-                checkDigit = "0";
-            }
-            else
-            {
-                checkDigit = (11 - resto).ToString();
-            }
-
-            return $"{number}{checkDigit}";
-        }
-
 
     }
 
