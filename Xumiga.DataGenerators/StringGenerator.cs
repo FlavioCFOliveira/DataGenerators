@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace Xumiga.DataGenerators
+﻿namespace Xumiga.DataGenerators
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public static class StringGenerator
     {
         private const string FULL_CHARS = @"qwertyuiopasdfghjklzxcvbnm0123456789QWERTYUIOPASDFGHJKLZXCVBNM@£§€{[]}|\!#$%&/()=?»*ªº/-_<>'~^.""";
@@ -13,25 +13,23 @@ namespace Xumiga.DataGenerators
         private const string ALPHABETIC_LOWER_CHARS = "qwertyuiopasdfghjklzxcvbnm";
         private const string NUMERIC_CHARS = "0123456789";
         private const string SYMBOL_CHARS = @"@£§€{[]}|\!#$%&/()=?»*ªº/-_<>'~^.""";
+        public static readonly Random rand;
 
         static StringGenerator()
         {
             rand = new Random();
         }
 
-        public static Random rand;
-
         public static string GetFromSource(int outputSize, string sourceChars)
         {
-            var outputChars = new char[outputSize];
-            for (int i = 0; i < outputSize; i++)
+            return string.Create(outputSize, string.Empty, (span, v) =>
             {
-                outputChars[i] = sourceChars[rand.Next(sourceChars.Length)];
-            }
-
-            return new string(outputChars);
+                for (int i = 0; i < outputSize; i++)
+                {
+                    span[i] = sourceChars[rand.Next(sourceChars.Length)];
+                }
+            });
         }
-
         public static string GetAlphaNumeric(int outputSize)
         {
             return GetFromSource(outputSize, ALPHANUMERIC_CHARS);
@@ -60,10 +58,6 @@ namespace Xumiga.DataGenerators
         {
             return GetFromSource(outputSize, ALPHABETIC_CHARS);
         }
-
-
-
-
         public static string GetAlphaNumeric(int minSize, int maxSize)
         {
             return GetAlphaNumeric(rand.Next(minSize, maxSize));
@@ -92,8 +86,6 @@ namespace Xumiga.DataGenerators
         {
             return GetAlphabetic(rand.Next(minSize, maxSize));
         }
-
-
         public static string GenerateStrongString(int size, int minNumbers = 0, int minUpperChars = 0, int minLowerChars = 0, int minSymbolChars = 0)
         {
             var minRequiredTotal = (minNumbers + minUpperChars + minLowerChars + minSymbolChars);
@@ -146,5 +138,6 @@ namespace Xumiga.DataGenerators
 
             return string.Empty;
         }
+
     }
 }
