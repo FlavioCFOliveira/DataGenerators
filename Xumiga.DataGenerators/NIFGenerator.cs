@@ -4,7 +4,7 @@
 
     public static class NIFGenerator
     {
-        public static readonly Random rand;
+        private static readonly Random rand;
 
         static NIFGenerator()
         {

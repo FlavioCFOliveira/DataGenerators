@@ -8,7 +8,7 @@
 
     public class NamesGenerator
     {
-        public static readonly Random rand;
+        private static readonly Random rand;
         private static readonly List<string> Apelidos;
         private static readonly List<string> NomesProprios;
 

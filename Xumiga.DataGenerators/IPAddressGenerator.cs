@@ -4,7 +4,7 @@
 
     public class IPAddressGenerator
     {
-        public static readonly Random rand;
+        private static readonly Random rand;
 
         static IPAddressGenerator()
         {

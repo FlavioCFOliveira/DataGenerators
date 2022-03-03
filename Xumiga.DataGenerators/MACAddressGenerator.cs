@@ -5,7 +5,7 @@
 
     public static class MACAddressGenerator
     {
-        public static readonly Random rand;
+        private static readonly Random rand;
 
         static MACAddressGenerator()
         {

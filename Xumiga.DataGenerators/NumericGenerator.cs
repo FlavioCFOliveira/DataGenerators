@@ -5,8 +5,8 @@
 
     public static class NumericGenerator
     {
-        public static readonly Random rand;
-        public static readonly NumberFormatInfo culture;
+        private static readonly Random rand;
+        private static readonly NumberFormatInfo culture;
 
         static NumericGenerator()
         {

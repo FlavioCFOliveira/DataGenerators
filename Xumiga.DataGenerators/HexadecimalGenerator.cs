@@ -5,7 +5,7 @@
 
     public static class HexadecimalGenerator
     {
-        public static readonly Random rand;
+        private static readonly Random rand;
         private const string HEXA_CHARS = @"0123456789abcdef";
 
         static HexadecimalGenerator()

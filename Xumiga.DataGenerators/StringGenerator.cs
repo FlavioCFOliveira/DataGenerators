@@ -13,7 +13,7 @@
         private const string ALPHABETIC_LOWER_CHARS = "qwertyuiopasdfghjklzxcvbnm";
         private const string NUMERIC_CHARS = "0123456789";
         private const string SYMBOL_CHARS = @"@£§€{[]}|\!#$%&/()=?»*ªº/-_<>'~^.""";
-        public static readonly Random rand;
+        private static readonly Random rand;
 
         static StringGenerator()
         {

@@ -4,7 +4,7 @@
 
     public static class RandomEnumGenerator
     {
-        public static readonly Random rand;
+        private static readonly Random rand;
 
         static RandomEnumGenerator()
         {
