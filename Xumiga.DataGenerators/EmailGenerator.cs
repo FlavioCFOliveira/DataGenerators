@@ -2,6 +2,9 @@
 
 namespace Xumiga.DataGenerators;
 
+/// <summary>
+/// Random generator for email formated character sequences
+/// </summary>
 public static class EmailGenerator
 {
     public static string GenerateEmailAddressWithWords(int numberOfWords = 3, string separator = ".")

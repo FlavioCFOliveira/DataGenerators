@@ -1,6 +1,6 @@
-﻿namespace Xumiga.DataGenerators;
+﻿using System;
 
-using System;
+namespace Xumiga.DataGenerators;
 
 /// <summary>
 /// Random generator for date and times
