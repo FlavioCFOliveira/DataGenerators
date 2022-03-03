@@ -22,7 +22,6 @@ namespace Xumiga.DataGenerator.tests
             Assert.True(!string.IsNullOrEmpty(val));
         }
 
-
         [Fact]
         public void NamesGenerator_GetRandomFullName()
         {
