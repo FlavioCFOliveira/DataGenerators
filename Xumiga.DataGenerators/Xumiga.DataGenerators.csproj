@@ -12,9 +12,9 @@
     <PackageProjectUrl>https://github.com/FlavioCFOliveira/DataGenerators</PackageProjectUrl>
     <RepositoryUrl>https://github.com/FlavioCFOliveira/DataGenerators</RepositoryUrl>
     <PackageTags>Random Data Generation Tests</PackageTags>
-    <AssemblyVersion>1.0.7</AssemblyVersion>
-    <FileVersion>1.0.7</FileVersion>
-    <Version>1.0.7</Version>
+    <AssemblyVersion>1.0.0</AssemblyVersion>
+    <FileVersion>1.0.0</FileVersion>
+    <Version>1.0.0</Version>
     <PackageReleaseNotes></PackageReleaseNotes>
     <PackageLicenseExpression>"Free for personal and commersial usage"</PackageLicenseExpression>
     <PackageIcon>xumiga-icon.png</PackageIcon>
@@ -33,6 +33,14 @@
   </ItemGroup>
   <PropertyGroup>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RunAnalyzersDuringLiveAnalysis>False</RunAnalyzersDuringLiveAnalysis>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
   </PropertyGroup>
   <ItemGroup>
     <Resource Include="img\xumiga-icon.png" />
