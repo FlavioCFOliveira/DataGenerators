@@ -7,7 +7,7 @@ namespace Xumiga.DataGenerators;
 /// </summary>
 public static class DateTimeGenerator
 {
-    public static readonly Random rand;
+    private static readonly Random rand;
     static DateTimeGenerator()
     {
         rand = new Random();

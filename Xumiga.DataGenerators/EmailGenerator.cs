@@ -7,6 +7,12 @@ namespace Xumiga.DataGenerators;
 /// </summary>
 public static class EmailGenerator
 {
+    /// <summary>
+    /// Generates a email address based on a number of words
+    /// </summary>
+    /// <param name="numberOfWords"></param>
+    /// <param name="separator"></param>
+    /// <returns></returns>
     public static string GenerateEmailAddressWithWords(int numberOfWords = 3, string separator = ".")
     {
         string userName = string.Join(separator, WordGenerator.GenerateWords(numberOfWords));
@@ -66,9 +72,8 @@ public static class EmailGenerator
     /// <summary>
     /// Generate an email with a fixed sizes
     /// </summary>
-    /// <param name="userNameSize"></param>
-    /// <param name="hostNameSize"></param>
-    /// <param name="hostExtensionSize"></param>
+    /// <param name="userNameSize">the size of the user part</param>
+    /// <param name="hostSize">the size of the host part</param>
     /// <returns></returns>
     public static string GenerateEmailAddress(int userNameSize, int hostSize)
     {
