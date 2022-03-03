@@ -1,17 +1,16 @@
-﻿namespace Xumiga.DataGenerators
+﻿namespace Xumiga.DataGenerators;
+
+/// <summary>
+/// Generator for random boolean values
+/// </summary>
+public static class BooleanGenerator
 {
     /// <summary>
-    /// Generator for random boolean values
+    /// Generates a random boolean value
     /// </summary>
-    public static class BooleanGenerator
+    /// <returns>True or False</returns>
+    public static bool GetRandom()
     {
-        /// <summary>
-        /// Generates a random boolean value
-        /// </summary>
-        /// <returns>True or False</returns>
-        public static bool GetRandom()
-        {
-            return (NumericGenerator.GenerateInteger(0, 1) == 1);
-        }
+        return (NumericGenerator.GenerateInteger(0, 1) == 1);
     }
 }
