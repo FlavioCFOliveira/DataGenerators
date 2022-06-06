@@ -95,10 +95,11 @@ public static class NumericGenerator
     /// <param name="minValue"></param>
     /// <param name="maxValue"></param>
     /// <returns></returns>
-    public static short GenerateShort(short minValue, short maxValue)
+    public static short GenerateShort(short minValue = short.MinValue, short maxValue = short.MaxValue)
     {
-        return (short)rand.Next((int)minValue, (int)maxValue);
+        return (short)rand.Next(minValue, maxValue);
     }
+
 
     /// <summary>
     /// returns a decimal value
