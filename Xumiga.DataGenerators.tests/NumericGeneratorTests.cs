@@ -6,7 +6,7 @@ namespace Xumiga.DataGenerator.tests;
 public class NumericGeneratorTests
 {
     [Fact]
-    public void NumericGeneratorTestsTests_GenerateDecimal_FixedSize_SUCCESS()
+    public void GenerateDecimal_FixedSize_SUCCESS()
     {
         var lst = new List<decimal>();
 
@@ -16,4 +16,16 @@ public class NumericGeneratorTests
         }
 
     }
+
+
+    [Fact]
+    public void GenerateShort_SUCCESS()
+    {
+        for (int i = 0; i < 5000; i++)
+        {
+            var n = NumericGenerator.GenerateShort();
+            Assert.True(n >= short.MinValue && n <= short.MaxValue);
+        }
+    }
+
 }
